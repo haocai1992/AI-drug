@@ -45,33 +45,8 @@ df = pd.read_csv('data/all_companies.csv')
 dataset = df.to_dict(orient='index')
 
 
-# Create global chart template
-mapbox_access_token = 'pk.eyJ1Ijoic25ha2VicnlhbiIsImEiOiJja2J0dzZnaWEwMWxuMnhsYnUxZTBobWNqIn0.B0E9GC_uNHbz8b9BYDn0Ng'
-
-layout = dict(
-    autosize=True,
-    automargin=True,
-    margin=dict(
-        l=30,
-        r=30,
-        b=20,
-        t=40
-    ),
-    hovermode="closest",
-    plot_bgcolor="#F9F9F9",
-    paper_bgcolor="#F9F9F9",
-    legend=dict(font=dict(size=10), orientation='h'),
-    title='Satellite Overview',
-    mapbox=dict(
-        accesstoken=mapbox_access_token,
-        style="light",
-        center=dict(
-            lon=-78.05,
-            lat=42.54
-        ),
-        zoom=7,
-    )
-)
+# mapbox access token.
+# mapbox_access_token = 'pk.eyJ1Ijoic25ha2VicnlhbiIsImEiOiJja2J0dzZnaWEwMWxuMnhsYnUxZTBobWNqIn0.B0E9GC_uNHbz8b9BYDn0Ng'
 
 # Create app layout
 app.layout = html.Div(
@@ -250,6 +225,15 @@ app.layout = html.Div(
                 ),
             ],
             className='pretty_container row'
+        ),
+        html.Div(
+            [
+                dcc.Markdown('''
+                    Developed by Hao Cai - [Email](mailto:haocai3@gmail.com), [GitHub](https://github.com/haocai1992)  
+                    Data source - [Crunchbase](https://crunchbase.com/) & [BenchSci Blog by Simon Smith](https://blog.benchsci.com/startups-using-artificial-intelligence-in-drug-discovery#understand_mechanisms_of_disease)
+                    '''
+                )
+            ]
         )
     ],
     id="mainContainer",
@@ -269,8 +253,8 @@ def filter_dataframe(df, country_selector, category_selector):
                 & (df['category']==category_selector)]
     return dff
 
-# Create callbacks
 
+# Create callbacks
 # Radio -> multi
 @app.callback(Output('country_selector', 'value'),
               [Input('region_selector', 'value')])
@@ -315,6 +299,7 @@ def make_venture_stage_graph(metric_selector, country_selector, category_selecto
     fig.update_layout(title_text="Venture Stages")
     return fig
 
+
 # Selectors -> map_graph
 @app.callback(Output('map_graph', 'figure'),
               [Input('metric_selector', 'value'),
@@ -344,6 +329,7 @@ def make_map(metric_selector, country_selector, category_selector):
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, )
     return fig
 
+
 # Selectors/map click/map selection -> table
 @app.callback(Output('table', 'data'),
               [Input('country_selector', 'value'),
@@ -363,12 +349,14 @@ def make_table(country_selector, category_selector, map_click, map_select):
     dff = dff[dff.headquarters.isin(set(headquarters_filter))]
     return dff.to_dict('rows')
 
+
 # Reset table when click empty space in map.
 @app.callback([Output('map_graph', 'clickData'),
                Output('map_graph', 'selectedData')],
               [Input('map_graph-Container', 'n_clicks')])
 def reset_map_clickData(n_clicks):
     return [None, None]
+
 
 # Selectors -> category_graph
 @app.callback(Output('category_graph', 'figure'),
@@ -395,6 +383,7 @@ def make_category_graph(metric_selector, country_selector, category_selector):
     fig.update_layout(yaxis={'categoryorder':'array', 'categoryarray':phases[::-1]}, title_text="R&D category")
     return fig
 
+
 # category_graph click -> category_selector
 @app.callback(Output('category_selector', 'value'),
               [Input('category_graph', 'clickData')])
@@ -405,17 +394,20 @@ def click_category(category_graph_click):
         clicked_category = category_graph_click['points'][0]['y']
     return clicked_category
 
+
 # Reset category when click "reset_category" button .
 @app.callback(Output('category_graph', 'clickData'),
               [Input('reset_category', 'n_clicks')])
 def reset_category_clickData(n_clicks):
     return None 
 
+
 # category_selector -> word cloud
 @app.callback(Output('word_cloud_graph', 'src'),
               [Input('category_selector', 'value')])
 def make_word_cloud_graph(category_selector):
     return app.get_asset_url('{}.png'.format(category_selector))
+
 
 # category_selector -> pie graph
 @app.callback(Output('country_pie_graph', 'figure'),
@@ -440,4 +432,5 @@ def make_country_pie_graph(metric_selector, category_selector, country_selector)
 
 # Main
 if __name__ == '__main__':
-    app.server.run(debug=True, threaded=True)
+    app.run_server(debug=True)
+    # app.server.run(debug=True, threaded=True)
