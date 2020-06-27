@@ -1,2 +1,2 @@
 # AI-drug
-Analysis of AI starups in drug discovery field
+Dashboard visualization of AI starups in drug discovery field
