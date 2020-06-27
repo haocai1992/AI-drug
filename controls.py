@@ -32,5 +32,16 @@ REGIONS = {
 
 METRICS = [
     "number of startups",
-    "amount ($M.) of investment"
+    "$M of investment"
+]
+
+TABLE_COLUMNS = [
+    'company_name',
+    'website',
+    'founded',
+    'headquarters',
+    'funding_stage',
+    'funding_amount',
+    'uses_ai_to',
+    'allows_researchers_to'
 ]
