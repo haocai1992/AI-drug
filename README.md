@@ -68,7 +68,8 @@ I used Plotly Dash to build an interactive dashboard to visualize my dataset and
 <p align="center">
 <img src="/imgs/dashboard.png">
 </p>
-<br>  
+<br>
+
 ***References***:  
 
 [1] Simon Smith, 230 Startups Using Artificial Intelligence in Drug Discovery. https://blog.benchsci.com/startups-using-artificial-intelligence-in-drug-discovery#understand_mechanisms_of_disease
