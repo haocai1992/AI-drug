@@ -73,7 +73,6 @@ I used Plotly Dash to build an interactive dashboard to visualize my dataset and
 ***References***:  
 
 [1] Simon Smith, 230 Startups Using Artificial Intelligence in Drug Discovery. https://blog.benchsci.com/startups-using-artificial-intelligence-in-drug-discovery#understand_mechanisms_of_disease
-
 [2] https://www.crunchbase.com/  
 [3] https://pitchbook.com/  
 [4] David Comfort, How to Build a Reporting Dashboard using Dash and Plotly. https://towardsdatascience.com/how-to-build-a-complex-reporting-dashboard-using-dash-and-plotl-4f4257c18a7f
