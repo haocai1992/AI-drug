@@ -65,6 +65,8 @@ We can see that the R&D category that attracts most attention and funding is the
 ## Interactive Dashboard
 I used Plotly Dash to build an interactive dashboard to visualize my dataset and deliver analysis insights. Dash is Python-based framework for building analytical web applications, and it's free! The completed dashboard can be viewed at [https://ai-drug-dash.herokuapp.com/](https://ai-drug-dash.herokuapp.com/).
 
+How to use this dashboard? First, choose an visualization metric from the top left control panel. You can use either the number of companies, or the amount of investment in all visualization plots. Next, choose a region or countries. This can be done either by selecting from the control panel, or by clicking/box selection in the map plot (to reset your selection, click empty spot in the map). Finally, choose a R&D category. This can be done either by selection from the control panel, or by clicking a bar in the bottom-left category plot, which will also update the keyword graph for this category. The company information table in the middle will also update with these selections, so that you can narrow down your company list for research. Have fun!
+
 <p align="center">
 <img src="/imgs/dashboard.png">
 </p>
