@@ -1,7 +1,7 @@
 ![](banner.jpg)
 *(Photo by <a href="https://unsplash.com/@lenscapewithme?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christine Sandu</a> on <a href="https://unsplash.com/@lenscapewithme?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</p>*
 
-This repo contains the source code for [my blog](https://towardsdatascience.com/visualizing-ai-startups-in-drug-discovery-cb274eea2792) published on [Towards Data Science](https://towardsdatascience.com/).
+***This repo contains the source code for [my blog](https://towardsdatascience.com/visualizing-ai-startups-in-drug-discovery-cb274eea2792) published on [Towards Data Science](https://towardsdatascience.com/).***
 
 
 # AI-drug
